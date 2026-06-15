@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soccer Penalty</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        .goal { width: 400px; height: 150px; border: 5px solid white; border-bottom: none; margin: 50px auto; position: relative; background: #1e7e34;}
+        .target { width: 100px; height: 100px; background: rgba(255,255,255,0.3); position: absolute; top: 25px; cursor: pointer; line-height: 100px; font-size: 30px;}
+        #left { left: 20px; } #right { right: 20px; }
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>⚽ Soccer Penalty</h1>
+    <p>Pick a corner to kick the ball!</p>
+    <div class="goal">
+        <div id="left" class="target" onclick="kick('left')">🎯</div>
+        <div id="right" class="target" onclick="kick('right')">🎯</div>
+    </div>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        function kick(playerChoice) {
+            let goalieChoice = Math.random() < 0.5 ? 'left' : 'right';
+            let res = document.getElementById('result');
+            if(playerChoice === goalieChoice) { res.textContent = "🧤 SAVED! The goalie blocked it."; res.style.color = "#ff4757"; }
+            else { res.textContent = "⚽ GOALLL!! You fooled the keeper!"; res.style.color = "#2ed573"; }
+        }
+    </script>
+</body>
+</html>
