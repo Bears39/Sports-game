@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basketball Shoot</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #meter { width: 300px; height: 30px; background: #444; margin: 50px auto; position: relative; border-radius: 15px; overflow: hidden;}
+        #target { width: 50px; height: 100%; background: #2ed573; position: absolute; left: 125px; }
+        #pointer { width: 10px; height: 100%; background: #ff4757; position: absolute; left: 0; }
+        button { padding: 10px 20px; font-size: 18px; cursor: pointer; background: #ff9f43; border: none; border-radius: 5px; color: white;}
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🏀 Basketball Shoot</h1>
+    <p>Press SHOOT when the red bar is in the green zone!</p>
+    <div id="meter"><div id="target"></div><div id="pointer"></div></div>
+    <button onclick="shoot()">SHOOT!</button>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let pointer = document.getElementById('pointer');
+        let pos = 0; let dir = 2;
+        setInterval(() => {
+            pos += dir;
+            if(pos > 290 || pos < 0) dir *= -1;
+            pointer.style.left = pos + 'px';
+        }, 10);
+        function shoot() {
+            let res = document.getElementById('result');
+            if(pos >= 125 && pos <= 175) { res.textContent = "🏀 SWISH! You scored!"; res.style.color = "#2ed573"; }
+            else { res.textContent = "❌ Brick! Missed the hoop."; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
