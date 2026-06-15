@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baseball Batter</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #plate { width: 200px; height: 200px; margin: 30px auto; position: relative; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;}
+        #ball { font-size: 10px; transition: all 0.1s linear; position: absolute; }
+        button { padding: 10px 20px; font-size: 18px; cursor: pointer; background: #ff9f43; border: none; }
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>⚾ Baseball Batter</h1>
+    <p>Swing when the pitch gets right up to the plate!</p>
+    <div id="plate"><div id="ball">⚾</div></div>
+    <button onclick="swing()">SWING!</button>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let ball = document.getElementById('ball');
+        let size = 10;
+        let pitch = setInterval(() => {
+            size += 4;
+            if(size > 120) size = 10;
+            ball.style.fontSize = size + 'px';
+        }, 50);
+
+        function swing() {
+            let res = document.getElementById('result');
+            if(size >= 80 && size <= 110) { res.textContent = "💥 HOME RUN!! Spectacular hit!"; res.style.color = "#2ed573"; }
+            else { res.textContent = "❌ STRIKE! Your timing was off."; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
