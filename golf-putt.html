@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Golf Putt</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        input[type=range] { width: 250px; }
+        button { padding: 10px 20px; background: #2ed573; border: none; font-weight: bold; cursor: pointer; }
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>⛳ Golf Putt</h1>
+    <p>The hole is exactly 75 yards away. Set your power perfectly!</p>
+    <input type="range" id="power" min="1" max="100" value="50"> <span id="val">50</span> Yards<br><br>
+    <button onclick="putt()">PUTT</button>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let slider = document.getElementById('power');
+        slider.oninput = function() { document.getElementById('val').textContent = this.value; }
+        function putt() {
+            let res = document.getElementById('result');
+            if(slider.value == 75) { res.textContent = "⛳ HOLE IN ONE! Perfection!"; res.style.color = "#2ed573"; }
+            else if(slider.value > 70 && slider.value < 80) { res.textContent = "🥈 So close! Lip out."; res.style.color = "#ffa502"; }
+            else { res.textContent = "❌ Too short or too long!"; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
