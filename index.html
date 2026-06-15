@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Sports Arcade</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 { color: #ff9f43; margin-bottom: 5px; }
+        p { color: #ccc; margin-bottom: 30px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff9f43;
+            background-color: #383838;
+        }
+        .icon { font-size: 40px; margin-bottom: 10px; }
+        .card h3 { margin: 10px 0 5px 0; }
+        .card p { font-size: 12px; color: #aaa; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Mini Sports Arcade</h1>
+    <p>Quick-fire sports challenges. Can you score?</p>
+
+    <div class="grid">
+        <a href="basketball-shoot.html" class="card">
+            <div class="icon">🏀</div>
+            <h3>Basketball Shoot</h3>
+            <p>Time the shot perfectly!</p>
+        </a>
+        <a href="soccer-penalty.html" class="card">
+            <div class="icon">⚽</div>
+            <h3>Soccer Penalty</h3>
+            <p>Beat the goalie!</p>
+        </a>
+        <a href="baseball-hit.html" class="card">
+            <div class="icon">⚾</div>
+            <h3>Baseball Batter</h3>
+            <p>Hit the incoming pitch!</p>
+        </a>
+        <a href="football-fieldgoal.html" class="card">
+            <div class="icon">🏈</div>
+            <h3>Field Goal Kick</h3>
+            <p>Aim through the uprights!</p>
+        </a>
+        <a href="tennis-volley.html" class="card">
+            <div class="icon">🎾</div>
+            <h3>Tennis Volley</h3>
+            <p>Keep the ball in play!</p>
+        </a>
+        <a href="hockey-slapshot.html" class="card">
+            <div class="icon">🏒</div>
+            <h3>Hockey Slapshot</h3>
+            <p>Find the open corner!</p>
+        </a>
+        <a href="golf-putt.html" class="card">
+            <div class="icon">⛳</div>
+            <h3>Golf Putt</h3>
+            <p>Sink it in the cup!</p>
+        </a>
+        <a href="bowling-strike.html" class="card">
+            <div class="icon">🎳</div>
+            <h3>Bowling Strike</h3>
+            <p>Line up the perfect roll!</p>
+        </a>
+        <a href="archery-bullseye.html" class="card">
+            <div class="icon">🎯</div>
+            <h3>Archery Target</h3>
+            <p>Hit the moving bullseye!</p>
+        </a>
+        <a href="boxing-punch.html" class="card">
+            <div class="icon">🥊</div>
+            <h3>Boxing Reflex</h3>
+            <p>Punch when the light flashes!</p>
+        </a>
+    </div>
+
+</body>
+</html>
