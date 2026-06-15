@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boxing Reflex</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #pad { width: 200px; height: 200px; background: #ff4757; margin: 30px auto; border-radius: 50%; line-height: 200px; font-size: 40px; cursor: pointer; user-select: none;}
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🥊 Boxing Reflex</h1>
+    <p>Wait for the red pad to turn GREEN, then click it instantly!</p>
+    <div id="pad" onclick="punch()">🥊</div>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let pad = document.getElementById('pad');
+        let canPunch = false;
+        let startTime;
+        
+        setTimeout(() => {
+            pad.style.background = "#2ed573";
+            canPunch = true;
+            startTime = Date.now();
+        }, 2000 + Math.random() * 3000);
+
+        function punch() {
+            let res = document.getElementById('result');
+            if(canPunch) {
+                let reaction = (Date.now() - startTime) / 1000;
+                res.textContent = `💥 KNOCKOUT! Reaction time: ${reaction}s`;
+                res.style.color = "#2ed573";
+                canPunch = false;
+            } else {
+                res.textContent = "❌ Too early! Invalidation.";
+                res.style.color = "#ff4757";
+            }
+        }
+    </script>
+</body>
+</html>
