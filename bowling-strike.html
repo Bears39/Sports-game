@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bowling Strike</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #lane { width: 100px; height: 200px; background: #ffeaa7; margin: 20px auto; position: relative; border: 2px solid #d63031; }
+        #ball { position: absolute; bottom: 10px; left: 40px; font-size: 20px; transition: 0.1s; }
+        button { padding: 10px 20px; background: #e84393; border: none; color: white; cursor: pointer;}
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🎳 Bowling Strike</h1>
+    <p>Roll the ball when it is aligned perfectly in the middle!</p>
+    <div id="lane"><div id="ball">🎳</div></div><br>
+    <button onclick="roll()">ROLL BALL</button>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let ball = document.getElementById('ball');
+        let pos = 0; let dir = 3;
+        let loop = setInterval(() => {
+            pos += dir;
+            if(pos > 75 || pos < 0) dir *= -1;
+            ball.style.left = pos + 'px';
+        }, 30);
+        function roll() {
+            clearInterval(loop);
+            let res = document.getElementById('result');
+            if(pos >= 35 && pos <= 45) { res.textContent = "🎳 STRIKE!!! All pins down!"; res.style.color = "#2ed573"; }
+            else { res.textContent = "❌ Gutter ball or spare!"; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
