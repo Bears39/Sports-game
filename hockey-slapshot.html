@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hockey Slapshot</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #net { width: 300px; height: 150px; border: 4px dashed white; margin: 40px auto; position: relative; background: #74b9ff; }
+        #puck { font-size: 30px; position: absolute; cursor: pointer; top: 60px; left: 135px; }
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🏒 Hockey Slapshot</h1>
+    <p>Click the puck while it moves sideways to slap it into the net!</p>
+    <div id="net"><div id="puck" onclick="shoot()">🏒</div></div>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let puck = document.getElementById('puck');
+        let leftPos = 0; let speed = 4;
+        setInterval(() => {
+            leftPos += speed;
+            if (leftPos > 260 || leftPos < 0) speed *= -1;
+            puck.style.left = leftPos + 'px';
+        }, 20);
+        function shoot() {
+            let res = document.getElementById('result');
+            if (leftPos < 70 || leftPos > 190) { res.textContent = "🚨 GOAL! Found the corner pocket!"; res.style.color = "#2ed573"; }
+            else { res.textContent = "❌ SAVED! Shot it right at the goalie."; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
