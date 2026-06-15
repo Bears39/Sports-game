@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Field Goal Kick</title>
+    <style>
+        body { background: #222; color: #fff; text-align: center; font-family: sans-serif; }
+        #post { font-size: 80px; margin: 20px; }
+        input[type=range] { width: 300px; }
+        button { padding: 10px 20px; background: #ff9f43; border: none; color: white; cursor: pointer; }
+        a { color: #aaa; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🏈 Field Goal Kick</h1>
+    <p id="wind">Wind: Left <-- 💨</p>
+    <input type="range" id="aim" min="1" max="100" value="50"><br><br>
+    <button onclick="kick()">KICK</button>
+    <h2 id="result"></h2>
+    <a href="index.html">← Back to Arcade</a>
+
+    <script>
+        let wind = Math.random() < 0.5 ? 'LEFT' : 'RIGHT';
+        document.getElementById('wind').textContent = `Wind Blowing To The: ${wind}`;
+        function kick() {
+            let aim = document.getElementById('aim').value;
+            let res = document.getElementById('result');
+            if((wind === 'LEFT' && aim > 65 && aim < 85) || (wind === 'RIGHT' && aim > 15 && aim < 45)) {
+                res.textContent = "🙌 IT'S GOOD! Field goal scored!"; res.style.color = "#2ed573";
+            } else { res.textContent = "❌ WIDE! The wind carried it away."; res.style.color = "#ff4757"; }
+        }
+    </script>
+</body>
+</html>
